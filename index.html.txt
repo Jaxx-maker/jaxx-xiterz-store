@@ -1,0 +1,225 @@
+from textwrap import dedent
+
+html_content = dedent("""
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jaxx Xiterz Store</title>
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0d0d0d;
+    color: white;
+}
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #1a001f, #2d004d);
+    box-shadow: 0 0 20px #a020f0;
+}
+header h1 {
+    font-size: 42px;
+    color: #d580ff;
+}
+header p {
+    color: #ddd;
+}
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px 0;
+}
+.category {
+    margin-top: 40px;
+}
+.category h2 {
+    color: #d580ff;
+    border-left: 5px solid #a020f0;
+    padding-left: 10px;
+}
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+.card {
+    background: #1a1a1a;
+    border: 1px solid #6a0dad;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(160,32,240,0.4);
+    transition: 0.3s;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(213,128,255,0.7);
+}
+.card h3 {
+    color: #e0b3ff;
+}
+.card ul {
+    padding-left: 20px;
+}
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 15px;
+    background: #a020f0;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+}
+.btn:hover {
+    background: #c04dff;
+}
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #aaa;
+}
+.qris {
+    text-align: center;
+    margin-top: 40px;
+}
+.qris a {
+    color: #d580ff;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Jaxx Xiterz</h1>
+    <p>Menyediakan panel dan kebutuhan semua game</p>
+    <a class="btn" href="https://wa.me/62882008882411" target="_blank">Order via WhatsApp</a>
+</header>
+
+<div class="container">
+
+    <div class="category">
+        <h2>Panel Free Fire</h2>
+        <div class="card-grid">
+
+            <div class="card">
+                <h3>Fluorite iOS (FF / MLBB)</h3>
+                <ul>
+                    <li>1 Hari — Rp60.000</li>
+                    <li>7 Hari — Rp200.000</li>
+                    <li>30 Hari — Rp350.000</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Gbox / Esign</h3>
+                <ul>
+                    <li>1 Tahun — Rp130.000</li>
+                    <li>No Warranty</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Drip Non Root</h3>
+                <ul>
+                    <li>1 Hari — Rp30.000</li>
+                    <li>3 Hari — Rp50.000</li>
+                    <li>7 Hari — Rp100.000</li>
+                    <li>15 Hari — Rp150.000</li>
+                    <li>30 Hari — Rp250.000</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Drip Root</h3>
+                <ul>
+                    <li>1 Hari — Rp40.000</li>
+                    <li>7 Hari — Rp100.000</li>
+                    <li>30 Hari — Rp250.000</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Pato Team (No Root)</h3>
+                <ul>
+                    <li>3 Hari — Rp60.000</li>
+                    <li>7 Hari — Rp120.000</li>
+                    <li>15 Hari — Rp180.000</li>
+                    <li>30 Hari — Rp280.000</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>HG (Root / Non Root)</h3>
+                <ul>
+                    <li>1 Hari — Rp30.000</li>
+                    <li>7 Hari — Rp60.000</li>
+                    <li>10 Hari — Rp80.000</li>
+                    <li>30 Hari — Rp200.000</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>LK Team / STRICKS BR / Beyond / XTFFHAX</h3>
+                <ul>
+                    <li>3 Hari — Rp25.000</li>
+                    <li>7 Hari — Rp50.000</li>
+                    <li>14 Hari — Rp100.000</li>
+                    <li>30 Hari — Rp120.000</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Panel MLBB</h2>
+        <div class="card-grid">
+
+            <div class="card">
+                <h3>Morella MLBB</h3>
+                <ul>
+                    <li>3 Hari — Rp30.000</li>
+                    <li>7 Hari — Rp50.000</li>
+                    <li>30 Hari — Rp100.000</li>
+                    <li>60 Hari — Rp180.000</li>
+                    <li>90 Hari — Rp270.000</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Pulse MLBB</h3>
+                <ul>
+                    <li>3 Hari — Rp30.000</li>
+                    <li>7 Hari — Rp50.000</li>
+                    <li>30 Hari — Rp100.000</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="qris">
+        <h2>QRIS Pembayaran</h2>
+        <p>Silakan scan QRIS berikut:</p>
+        <a href="https://ibb.co.com/HvnPNGC" target="_blank">Lihat QRIS</a>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 Jaxx Xiterz - All Rights Reserved
+</footer>
+
+</body>
+</html>
+""")
+
+path = "/mnt/data/jaxx-xiterz-store.html"
+with open(path, "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+print(path)

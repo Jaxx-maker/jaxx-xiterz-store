@@ -1,0 +1,371 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jaxx Ganteng</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:
+        radial-gradient(circle at top, #0b1838 0%, #040816 70%);
+      overflow-x:hidden;
+      overflow-y:auto;
+      color:white;
+      padding:25px 25px 140px;
+    }
+
+    /* Hide scrollbar */
+    body::-webkit-scrollbar { display: none; width: 0 !important; background: transparent; }
+    body { -ms-overflow-style: none; scrollbar-width: none; }
+
+    body::before{
+      content:'';
+      position:absolute;
+      width:500px;
+      height:500px;
+      background:#0077ff;
+      filter:blur(180px);
+      opacity:0.18;
+      z-index:-1;
+    }
+
+    .container{
+      width:100%;
+      max-width:430px;
+      text-align:center;
+      animation:fadeUp 1.2s ease;
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(25px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .profile{
+      margin-bottom:38px;
+      text-align:center;
+    }
+
+    .profile-wrapper{
+      position:relative;
+      width:124px;
+      height:124px;
+      margin:0 auto 18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .rotating-border{
+      position:absolute;
+      inset:0;
+      border-radius:50%;
+      background:conic-gradient(
+        rgba(255,255,255,0.2) 0deg,
+        #38bdf8 45deg,
+        #0ea5e9 90deg,
+        #1d4ed8 180deg,
+        #38bdf8 250deg,
+        rgba(255,255,255,0.25) 320deg,
+        rgba(255,255,255,0.2) 360deg
+      );
+      animation:spinBorder 10s linear infinite;
+      filter:drop-shadow(0 0 12px rgba(14,165,233,0.75));
+    }
+
+    .rotating-border::before{
+      content:'';
+      position:absolute;
+      inset:6px;
+      border-radius:50%;
+      background:radial-gradient(circle at top, #0b1838 0%, #040816 80%);
+      z-index:1;
+    }
+
+    .profile img{
+      position:relative;
+      width:92px;
+      height:92px;
+      border-radius:50%;
+      object-fit:cover;
+      border:2px solid rgba(56,189,248,0.45);
+      box-shadow:0 0 20px rgba(14,165,233,0.45), 0 0 34px rgba(14,165,233,0.2);
+      z-index:2;
+      transition:0.3s;
+    }
+
+    .profile img:hover{
+      transform:scale(1.02);
+    }
+
+    .profile-name{
+      font-size:30px;
+      font-weight:800;
+      letter-spacing:-0.5px;
+      line-height:1.15;
+      background:linear-gradient(to right, #00aeff, #4da6ff, #7d7dff);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      text-shadow:0 0 16px rgba(0,174,255,0.28);
+    }
+
+    .verified-badge{
+      font-size:1rem;
+      color:#38bdf8;
+      margin-left:6px;
+      filter:drop-shadow(0 0 6px rgba(56,189,248,0.8));
+    }
+
+    .bio{
+      margin-top:10px;
+      font-size:0.95rem;
+      color:#cbd5e1;
+      line-height:1.6;
+      padding:0 10px;
+    }
+
+    .bio span{
+      display:block;
+      margin-top:4px;
+      color:#94a3b8;
+      font-size:0.88rem;
+    }
+
+    .socials{
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      margin-top:20px;
+    }
+
+    .socials a{
+      width:58px;
+      height:58px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+      color:white;
+      font-size:24px;
+      border:1px solid rgba(56,189,248,0.22);
+      background:rgba(14,165,233,0.08);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,0.07), 0 0 18px rgba(14,165,233,0.2);
+      backdrop-filter:blur(10px);
+      transition:0.3s;
+    }
+
+    .socials a:hover{
+      transform:translateY(-4px);
+      background:rgba(14,165,233,0.2);
+      border-color:rgba(56,189,248,0.5);
+    }
+
+    .links{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    .btn{
+      text-decoration:none;
+      color:white;
+      padding:20px 28px 20px 20px;
+      border-radius:22px;
+      font-size:18px;
+      font-weight:600;
+      letter-spacing:1px;
+      background:rgba(30,40,60,0.38);
+      border:1.5px solid rgba(255,255,255,0.13);
+      box-shadow:0 4px 32px 0 rgba(0,0,0,0.18), 0 1.5px 8px 0 rgba(0,132,255,0.10);
+      transition:0.25s cubic-bezier(.4,2,.6,1);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .btn i{
+      font-size:22px;
+    }
+
+    .btn:hover{
+      transform:scale(1.03);
+      background:rgba(29,143,255,0.13);
+      box-shadow:0 0 20px #1d8fff, 0 0 60px rgba(0,132,255,0.18);
+      border:1.5px solid #1d8fff;
+    }
+
+    @keyframes spinBorder {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media(max-width:480px){
+      .profile-wrapper{
+        width:112px;
+        height:112px;
+      }
+
+      .profile img{
+        width:84px;
+        height:84px;
+      }
+
+      .profile-name{
+        font-size:26px;
+      }
+
+      .bio{
+        font-size:0.9rem;
+      }
+
+      .btn{
+        font-size:16px;
+        padding:20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <audio id="bgMusic" loop autoplay>
+    <source src="baon-cikadap.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="container">
+    <div class="profile">
+      <div class="profile-wrapper">
+        <div class="rotating-border"></div>
+        <img src="profile-jaxx.jpg" alt="profile">
+      </div>
+
+      <h1 class="profile-name">
+        Jaxx Ganteng
+        <i class="fa-solid fa-circle-check verified-badge"></i>
+      </h1>
+
+      <p class="bio">
+        Auto Order • Community • Seller
+      </p>
+    </div>
+
+    <div class="links">
+      <a href="https://jaxxstore.my.id" class="btn">
+        <span style="display:flex;align-items:center;gap:14px;">
+          <i class="fa-solid fa-cart-shopping"></i>
+          WEB AUTO ORDER
+        </span>
+        <i class="fa-solid fa-chevron-right" style="font-size:22px;opacity:0.7;"></i>
+      </a>
+
+      <a href="https://chat.whatsapp.com/KSdMf1vLGZn6hr1q3D3dRX?mode=gi_t" target="_blank" class="btn">
+        <span style="display:flex;align-items:center;gap:14px;">
+          <i class="fa-brands fa-whatsapp"></i>
+          GROUP WHATSAPP
+        </span>
+        <i class="fa-solid fa-chevron-right" style="font-size:22px;opacity:0.7;"></i>
+      </a>
+
+      <a href="https://whatsapp.com/channel/0029Vb74wnuEKyZEdwHbqv0h" target="_blank" class="btn">
+        <span style="display:flex;align-items:center;gap:14px;">
+          <i class="fa-brands fa-whatsapp"></i>
+          CHANNEL WHATSAPP
+        </span>
+        <i class="fa-solid fa-chevron-right" style="font-size:22px;opacity:0.7;"></i>
+      </a>
+
+      <a href="https://api.whatsapp.com/send/?phone=628977107928&text=halo+bang+Jaxx.&type=phone_number&app_absent=0" target="_blank" class="btn">
+        <span style="display:flex;align-items:center;gap:14px;">
+          <i class="fa-brands fa-whatsapp"></i>
+          WHATSAPP ADMIN
+        </span>
+        <i class="fa-solid fa-chevron-right" style="font-size:22px;opacity:0.7;"></i>
+      </a>
+
+      <a href="https://discord.gg/6AB6ZxzrG3" target="_blank" class="btn">
+        <span style="display:flex;align-items:center;gap:14px;">
+          <i class="fa-brands fa-discord"></i>
+          DISCORD SERVER
+        </span>
+        <i class="fa-solid fa-chevron-right" style="font-size:22px;opacity:0.7;"></i>
+      </a>
+
+      <a href="https://www.tiktok.com/@xiterzz99" target="_blank" class="btn">
+        <span style="display:flex;align-items:center;gap:14px;">
+          <i class="fa-brands fa-tiktok"></i>
+          AKUN TIKTOK 1
+        </span>
+        <i class="fa-solid fa-chevron-right" style="font-size:22px;opacity:0.7;"></i>
+      </a>
+
+      <a href="https://www.tiktok.com/@jaxxlipe" target="_blank" class="btn">
+        <span style="display:flex;align-items:center;gap:14px;">
+          <i class="fa-brands fa-tiktok"></i>
+          AKUN TIKTOK 2
+        </span>
+        <i class="fa-solid fa-chevron-right" style="font-size:22px;opacity:0.7;"></i>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const music = document.getElementById('bgMusic');
+    let started = false;
+
+    async function fadeInMusic(){
+      if(started){
+        return;
+      }
+
+      try{
+        music.volume = 0;
+        await music.play();
+        started = true;
+
+        let volume = 0;
+        const fade = setInterval(() => {
+          if(volume < 0.35){
+            volume += 0.02;
+            music.volume = volume;
+          } else {
+            clearInterval(fade);
+          }
+        }, 180);
+      } catch(err){
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', fadeInMusic);
+  </script>
+</body>
+</html>
